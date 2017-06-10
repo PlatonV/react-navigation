@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addNavigationHelpers, StackNavigator } from 'react-navigation';
+import { addNavigationHelpers, StackNavigator, TabNavigator } from 'react-navigation';
 
 import LoginScreen from '../components/LoginScreen';
 import MainScreen from '../components/MainScreen';
 import ProfileScreen from '../components/ProfileScreen';
 
+export const MyTabNavigator = TabNavigator({
+  Login: { screen: LoginScreen },
+  Profile: { screen: ProfileScreen },
+})
+
 export const AppNavigator = StackNavigator({
   Login: { screen: LoginScreen },
   Main: { screen: MainScreen },
-  Profile: { screen: ProfileScreen },
+  Profile: { screen: MyTabNavigator },
 });
 
 const AppWithNavigationState = ({ dispatch, nav }) => (

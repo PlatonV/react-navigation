@@ -14,6 +14,7 @@ const initialNavState = AppNavigator.router.getStateForAction(
 
 function nav(state = initialNavState, action) {
   let nextState;
+  console.log(state)
   switch (action.type) {
     case 'Login':
       nextState = AppNavigator.router.getStateForAction(
